@@ -1,7 +1,10 @@
 
 let a = "Rock";
 let b = "Paper";
-let c = "Scissors"
+let c = "Scissors";
+
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){ 
 
@@ -21,7 +24,7 @@ function getComputerChoice(){
 console.log(getComputerChoice())
 
 function getHumanChoice(){
-    let input = prompt("Enter rock,paper or scissors");
+    let input = prompt("Enter rock, paper or scissors");
     let string = input.toLowerCase();
     if (string === "rock"){
         return a
@@ -36,3 +39,4 @@ function getHumanChoice(){
 }
 
 console.log(getHumanChoice())
+
