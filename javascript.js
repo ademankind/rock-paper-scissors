@@ -3,8 +3,13 @@ let r = "Rock";
 let p = "Paper";
 let s = "Scissors";
 
+/*initialize score to 0*/
 let humanScore = 0;
 let computerScore = 0;
+
+
+
+/*Generate random choice for Computer*/
 
 function getComputerChoice(){ 
 
@@ -26,9 +31,10 @@ function getComputerChoice(){
 }
 
 
+/*Get input from human*/
 
 function getHumanChoice(){
-    let input = prompt("Enter rock, paper or scissors");
+    let input = prompt("Play 5 Rounds!! Enter rock, paper or scissors");
     let string = input.toLowerCase();
     if (string === "rock"){
         return r
@@ -42,6 +48,7 @@ function getHumanChoice(){
 
 }
 
+/*Play one round and increase score of winner*/
 
 function playRound(humanChoice, computerChoice){
 let x = humanChoice;
@@ -77,15 +84,49 @@ else if(x==p & y==s){
 }
 
 else{
-    console.log("It is a draw, Play Again!!")
+    console.log("It is a draw, !!")
 }
 
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+   
 
 
-playRound(humanSelection, computerSelection);
 
-console.log("Human score is ", +humanScore+"  " + "Computer score is " + computerScore);
+
+/*Play 5 rounds */
+function playGame(){
+
+   
+
+    for(let i = 0; i < 5; i++) {
+  
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("Human score is ", +humanScore+"  " + "Computer score is " + computerScore);
+     }
+
+    if( humanScore> computerScore){
+        alert("You Win!!");
+    }else if(computerScore>humanScore){
+        alert("You Lose :(");
+    }else{
+        alert("It's a draw");
+    }
+
+/*Set score to 0 after 5 rounds*/
+humanScore=0;
+computerScore=0;
+
+}
+
+/*call the function*/
+playGame();
+
+
+
+
+
+
+
