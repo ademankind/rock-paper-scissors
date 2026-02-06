@@ -77,12 +77,8 @@ else{
 
 
 
-function displayScore()
-{
-alert("  Player score: " + scorePlayer  + "    Computer score: " + scoreComputer + "    Draws: " + draws);
-}
-
 function handleScore(result) {
+
     if (result === 'playerWin') {
         scorePlayer++;
     } else if (result === 'computerWin') {
@@ -91,10 +87,39 @@ function handleScore(result) {
         draws++;
     }
 
+       
+
     // Display results
     const resultsContainer = document.getElementById('results-container');
-    resultsContainer.textContent = "  Player: " + scorePlayer + "    Computer: " + scoreComputer + "   Draws: " + draws;
+    resultsContainer.textContent = "  Player: " + scorePlayer + "  Computer: " + scoreComputer + "  Draws: " + draws;
+        
+    //Declare winner at 5 points
+    if (scorePlayer == 5){
+        declareWinner('Player');
+        resetScore();
 
+         }
+        else if(scoreComputer == 5){
+            declareWinner('Computer');
+            resetScore();
+         }
+}
+
+
+function declareWinner(string){
+
+    string = string.toUpperCase();
+     const resultsContainer = document.getElementById('results-container'); 
+     resultsContainer.textContent = "Final Score Player: " + scorePlayer+ "  Computer: " + scoreComputer + "      " + string + " WINS!!";
+     
+
+}
+
+//Reset Score to Zero
+function resetScore(){
+    scoreComputer = 0;
+    scorePlayer=0;
+    draws=0
 }
 
 
